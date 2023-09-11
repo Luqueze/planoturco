@@ -1,0 +1,39 @@
+int main(){
+    int n, i, m , c, num, j, k;
+
+    scanf("%d", &n);
+    for(i=0;i<n;i++){
+        scanf("%d %d", &m, &c);
+        int vet[c], hash[m][c];
+        for(j=0;j<m;j++){
+            for(k=0;k<c;k++){
+                hash[j][k] = 0;
+            }
+        }
+        k=0;
+        for(j=0;j<c;j++){
+            scanf("%d", &vet[j]);
+            num = vet[j]%m;
+            for(k=0;k<c;k++){
+                if(hash[num][k]==0){
+                    hash[num][k] = vet[j];
+                    break;
+                }
+            }
+        }
+        for(j=0;j<m;j++){
+            printf("%d -> ", j);
+            for(k=0;k<c;k++){
+                if(hash[j][k] == 0){
+                    printf("\\");
+                    break;
+                }
+                else
+                    printf("%d -> ", hash[j][k]);
+            }
+
+                printf("\n");
+        }
+        if(i!=n-1) printf("\n");
+    }
+}
